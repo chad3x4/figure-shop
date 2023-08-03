@@ -1,2 +1,2 @@
 Figure Shop Django
-##Main page
+## Main page
