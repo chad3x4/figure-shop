@@ -1,0 +1,27 @@
+{% load static %}
+{% load humanize %}
+{% load custom_filter %}
+<script src="{% static 'js/script.js' %}"></script>
+<div class="sub">
+  <p style="font-size:25px;color: #2d98da; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Giỏ hàng của tôi</p>
+  {% if my_figures|length == 0 %}
+    <p style="margin:5px 0 20px;color: #84817a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Bạn chưa thêm sản phẩm nào</p>
+  {% else %}
+    <ul style="padding:8px;">
+      {% for figure in my_figures %}
+      <li style="display:flex;margin:10px 5px;">
+        <img class="col30" style="width: 40%; border: 1px solid #84817a" src="{% static figure.cover %}"/>
+        <div class="col60" style="text-align: left;margin: 0 10px;">
+          <p style="margin:0;color: #2d98da; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ figure.name }}</p>
+          <p style="color: #c23616; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ figure.price|intcomma }} VNĐ</p>
+          {% with cart_figures=cart|with_figure:figure %}
+            <p style="color: #353b48; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">x{{ cart_figures.quantity }}</p>
+          {% endwith %}
+        </div>
+        <i class="fa-solid fa-trash col10" onclick="deleteItem({{ figure.id }})" style="color: #4b4b4b;"></i>
+      </li>
+      {% endfor %}
+    </ul>
+  <button class="purchase" onclick="window.location.href='/purchase/'" style="margin: 10px;width:90%;height:40px;">Thanh toán</button>
+  {% endif %}
+</div>

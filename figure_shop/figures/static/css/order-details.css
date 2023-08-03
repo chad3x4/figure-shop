@@ -1,0 +1,34 @@
+.order-info {
+    margin: 20px;
+}
+
+h1 {
+    color: #0097e6;
+}
+
+.status {
+    font-size: 25px;
+}
+
+.receiver-name {
+    font-size: 20px;
+}
+
+.to-address {
+    font-size: 20px;
+}
+
+.payment {
+    margin-bottom: 40px;
+}
+
+.total-payment {
+    margin-right: 40px;
+    color:#c23616;
+    font-weight:bold;
+}
+
+.col3 {
+    text-align: center;
+    width: 3%;
+}

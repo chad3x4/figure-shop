@@ -1,0 +1,10 @@
+{% extends "home/base-guest.html" %}
+{% block title %} | Notifications{% endblock %}
+{% block content %}
+    <div class="small-title"><strong>Thông báo mới nhất</strong></div>
+    <ul style="margin-bottom: 15px; list-style:none">
+        {% for notification in notifications %}
+        <li style="margin-bottom:15px;"><i class="fa-solid fa-bell fa-shake fa-lg" style="color: #c23616;"></i><a style="color:#2d98da; font-size: 20px;" href="details/id={{ notification.id }}/"> {{ notification.name }}</a><span style="margin-left: 10px;color:#718093;">{{ notification.created_date }}</span><li>
+        {% endfor %}
+    </ul>
+{% endblock %}

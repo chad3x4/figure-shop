@@ -1,0 +1,60 @@
+{% load static %}
+{% load humanize %}
+{% load custom_filter %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Thanh toán</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/logo.png' %}" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div style="margin: 100px;" class='container'>
+        <form action="/create_order/" method="get">
+            <h1>Thanh toán đơn hàng</h1>
+            <div class="form-content">
+                <label for="receiver-name" style="margin:10px;">Họ và tên người nhận:</label>
+                <input type="text" id="receiver-name" name="receiver-name" placeholder="Họ tên"/>
+                <label for="to-address" style="margin:10px;">Địa chỉ nhận hàng:</label>
+                <input type="text" id="to-address" name="to-address" placeholder="VD: Số 53 ngõ 43 Chùa Bộc"/>
+                <br/>
+                <p style="font-size:25px;color: #353b48; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Đơn hàng bao gồm:</p>
+                <ul style="padding:8px;">
+                    {% for figure in figures %}
+                    <li style="display:flex;margin:10px 5px;">
+                        <img class="col30" style="width: 20%; border: 1px solid #84817a" src="{% static figure.cover %}"/>
+                        <div class="col60" style="text-align: left;margin: 0 10px;">
+                            <p style="font-size:30px;margin:0;color: #353b48; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ figure.name }}</p>
+                            <p style="font-size:25px;color: #c23616; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ figure.price|intcomma }} VNĐ</p>
+                        </div>
+                        {% with cart_figures=cart|with_figure:figure %}
+                            <p class="col16" style="font-size:25px;color: #353b48; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;text-align:right">x{{ cart_figures.quantity }}</p>
+                        {% endwith %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="col100" style="text-align:right;font-size:25px">
+                    <span>Tổng thanh toán: </span><span class="total-payment" style="color:#c23616;font-weight:bold;">{{ total_payment|intcomma }} VNĐ</span>
+                </div>
+                <div style="font-size: 25px;margin-bottom: 15px;">Lựa chọn phương thức thanh toán:</div>
+                <div>
+                    <input type="radio" id="vcb" class="payment-mode" name="payment-mode" value="vcb"/>
+                    <label for="vcb">Thanh toán qua Vietcombank</label>
+                    <br/>
+                    <input type="radio" id="knh" class="payment-mode" name="payment-mode" value="knh"/>
+                    <label for="knh">Thanh toán khi nhận hàng</label>
+                </div>
+                <input type="submit" class="submit" value="Đặt hàng"/>
+                <br/>
+            </div>
+        </form>
+    </div>
+</body>

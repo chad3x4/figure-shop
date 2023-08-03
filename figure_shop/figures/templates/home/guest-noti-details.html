@@ -1,0 +1,9 @@
+{% extends "home/guest-notifications.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/description-style.css' %}"/>
+    <h1 class = "small-title">{{ notification.name }}</h1><span style="margin-left: 20px;">{{ notification.created_date }}</span>
+    <div class="notification-title">
+        {{ notification.content|safe }}
+    </div>
+{% endblock %}

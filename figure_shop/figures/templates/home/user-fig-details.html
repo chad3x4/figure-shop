@@ -1,0 +1,27 @@
+{% extends "home/user-figures.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/description-style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/plus-minus-style.css' %}"/>
+    <div class="item">
+        <div class="image col30">
+            <img style="width: 400px;border:1px solid black;width:60%!important;" src="{% static figure.cover %}" id="mainImg" alt="Figure"/>
+        </div>
+        <div class="info col30">
+            <h1 style="margin-top:0;font-size: 35px;color: #2d98da;">{{ figure.name }}</h1>
+            <h1 style="color:#c23616;">{{ figure.price|intcomma }} VNĐ</h1>
+            <div class="row30">
+                <button onclick="addItem({{ figure.id }})" class="purchase" style="cursor:pointer;">Thêm vào giỏ</button>
+                <p style="font-size: 20px;">Còn {{ figure.in_stock }} sản phẩm</p>
+            </div>
+        </div>
+    </div>
+    <hr class="separate"/>
+    <div class="description-field" style="margin-left:0;">
+        <div>
+            <h1 class="small-title">Thông tin về sản phẩm</h1>
+            <div style="margin-left:20px;">{{ figure.description|safe }}</div>
+        </div>
+    </div>
+{% endblock %}

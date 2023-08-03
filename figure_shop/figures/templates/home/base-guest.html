@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Figure Shop{% block title %} | Home{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/logo.png' %}" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/f119a3f6e2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="col10"></div>
+        <div class="col90 login" style="display: flex;align-items: center;padding-right: 20px;">
+            <form class="col80" action="{% url 'figure_search' %}" method="get">
+                <input class="search-field" type="text" name="keyword" placeholder="Tìm kiếm..."/>
+                <button class="search-icon" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+            </form>
+            <button class="col10 signin-button" onclick="window.location.href='/signin/'">Đăng nhập</button>
+        </div>
+    </div>
+    <nav>
+        <ul style="font-weight: 600;background:#74b9ff; font-size:19px;">
+            <li class="col25"><a href="/">Trang chủ</a></li>
+            <li class="col25"><a href="/figures/">Sản phẩm</a></li>
+            <li class="col25"><a href="/notifications/">Thông báo</a></li>
+            <li class="col25"><a href="/about/">Liên hệ</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        {% block content %}
+            <div class="welcome-text">
+                <h1 style="font-weight: bold;">Chào mừng bạn đến website của cửa hàng chúng tôi</h1>
+                <strong style="font-size: 30px">Đăng nhập để đặt hàng</strong>
+                <br/>
+                <img src="{% static 'assets/home.png' %}" width="600px" style="margin: 20px" />
+            </div>
+        {% endblock %}
+    </div>
+</body>
+</html>

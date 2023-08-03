@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Đăng ký</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/signin.png' %}" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div style="margin: 40px 100px;" class='container'>
+        <form action="/create_user/" method="post">
+            {% csrf_token %}
+            <h1>Đăng ký</h1>
+            <div class="form-content">
+                <input type="text" id="fname" name="fname" placeholder="Họ"/>
+                <input type="text" id="lname" name="lname" placeholder="Tên"/>
+                <input type="text" id="mail" name="mail" placeholder="E-mail"/>
+                <input type="text" id="user-name" name="username" placeholder="Tên đăng nhập"/>
+                <input type="password" id="password" name="password" placeholder="Mật khẩu"/>
+                <input type="password" id="cfpassword" name="cfpassword" placeholder="Nhập lại mật khẩu"/>
+                <br/>
+                <input type="submit" class="submit" value="Đăng ký"/>
+                {% if message %}
+                <div class="signin-error">{{ message }}</div>
+                {% endif %}
+                <br/>
+            </div>
+        </form>
+    </div>
+</body>

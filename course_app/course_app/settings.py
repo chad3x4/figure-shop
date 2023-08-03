@@ -32,22 +32,30 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.auth',  # For authentication, authorization
+    'django.contrib.contenttypes',  # For authentication, authorization
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
-    'courses.apps.CoursesConfig'
+    'courses.apps.CoursesConfig',
+    'rest_framework',
+    'oauth2_provider',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('oauth2_provider.contrib.rest_framework.OAuth2Authentication',),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 1
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',  # For authentication, authorization
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # For authentication, authorization
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]

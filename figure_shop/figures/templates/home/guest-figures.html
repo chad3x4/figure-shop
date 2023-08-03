@@ -1,0 +1,12 @@
+{% extends "home/base-guest.html" %}
+{% block title %} | Figures{% endblock %}
+{% block content %}
+    <div class="small-title"><strong>Tất cả sản phẩm</strong></div>
+    <div>
+        <ul style="display: flex; flex-wrap: wrap;">
+            {% for figure in figures %}
+            {% include "home/item.html" with figure=figure %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

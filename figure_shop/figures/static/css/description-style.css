@@ -1,0 +1,22 @@
+.separate {
+  width: 40%;
+  margin: 150px auto 60px;
+  border-top: 1px dashed #4b4b4b;
+}
+
+p img {
+    width: 80% !important;
+    height: auto !important;
+}
+
+p img {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.description-field {
+    margin: 0px;
+    font-size: 18px;
+    color: #2f3640;
+}

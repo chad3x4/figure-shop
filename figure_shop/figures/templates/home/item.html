@@ -1,0 +1,19 @@
+{% load static %}
+{% load humanize %}
+<script>
+    function openDetails(itemId) {
+    var url = '/figures/details/id='+itemId
+    window.location.replace(url);
+}
+</script>
+<div class="content col18">
+    <div class="row60 cover">
+        <img class="row80 col90" style="margin-top: 5px;height: 130px;border-radius: 8px;" src="{% static figure.cover %}" onclick="openDetails({{ figure.id }})"/>
+    </div>
+    <div class="row15" style="margin-top: 30px;">
+        <a href="/figures/details/id={{ figure.id }}" style="text-align: center; font-size: 18px;"><strong>{{ figure.name }}</strong></a>
+    </div>
+    <h4>
+        {{ figure.price|intcomma }} VNĐ
+    </h4>
+</div>

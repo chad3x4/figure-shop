@@ -1,6 +1,8 @@
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
 from django.contrib import admin
+from django.db.models import Count
+from django.template.response import TemplateResponse
 from django.urls import path
 from django.utils.html import mark_safe
 from .models import Category, Course, Lesson, Tag
@@ -51,7 +53,13 @@ class CourseAppAdminSite(admin.AdminSite):
         ] + super().get_urls()
 
     def course_stats(self, request):
-        return "Thống kê"
+        course_count = Course.objects.count()
+        stats = Course.objects.annotate(lesson_count=Count('lessons')).values('id', 'subject', 'lesson_count')
+        # annotate = AS
+        return TemplateResponse(request, 'admin/course-stats.html', {
+            'course_count': course_count,
+            'course_stats': stats
+        })
 
 
 admin_site = CourseAppAdminSite('mycourse')
