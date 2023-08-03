@@ -3,7 +3,15 @@
 ![image](figure_shop/figures/static/assets/main-page.png)
 
 
-## How to run server
+## Requirement:
+#### Python 3.11.2
+#### Django 4.2.2
+#### Django CKEditor 6.6.1
+#### REST Framework 3.14.0
+#### Pillow 9.5.0
+
+
+## How to run server:
 
 #### 1. Clone repo
 #### 2. Open in Pycharm
