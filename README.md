@@ -4,11 +4,11 @@
 
 
 ## Requirement:
-#### o Python 3.11.2
-#### o Django 4.2.2
-#### o Django CKEditor 6.6.1
-#### o REST Framework 3.14.0
-#### o Pillow 9.5.0
+###### o Python 3.11.2
+###### o Django 4.2.2
+###### o Django CKEditor 6.6.1
+###### o REST Framework 3.14.0
+###### o Pillow 9.5.0
 
 
 ## How to run server:
