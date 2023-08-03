@@ -7,6 +7,11 @@
 
 #### 1. Clone repo
 #### 2. Open in Pycharm
-#### 3. In terminal:
-##### - 'cd figure_shop'
-##### - 'python manage.py runserver'
+#### 3. Create a new schema named "fshopdb" with:
+###### - Charset: "utf8-mb4"
+###### - Collation: "utf8mb4_unicode_ci"
+#### 4. In terminal:
+###### - 'cd figure_shop'
+###### - 'python manage.py makemigrations figures'
+###### - 'python manage.py migrate'
+###### - 'python manage.py runserver'
