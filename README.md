@@ -5,8 +5,8 @@
 
 ## How to run server
 
-#### Clone repo
-#### Open in Pycharm
-#### In terminal:
-##### 'cd figure_shop'
-##### 'python manage.py runserver'
+#### 1. Clone repo
+#### 2. Open in Pycharm
+#### 3. In terminal:
+##### - 'cd figure_shop'
+##### - 'python manage.py runserver'
