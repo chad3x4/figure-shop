@@ -73,6 +73,35 @@ def signup(request):
         return render(request, 'signup.html')
 
 
+def modes_view(request):
+    return render(request, 'admin/admin-mode-selection.html')
+
+
+def statistics_view(request):
+    orders = Order.objects.all()
+    months = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+        9: 0,
+        10: 0,
+        11: 0,
+        12: 0
+    }
+    for order in orders:
+        month = order.created_date.month
+        months[month] += order.total_payment
+    if request.user.is_superuser:
+        return render(request, 'admin/admin-statistics.html', {'months': months})
+    else:
+        return redirect(index)
+
+
 def logout_view(request):
     logout(request)
     return redirect(index)
@@ -104,7 +133,7 @@ def figure_search(request):
     figures = Figure.objects.filter(in_stock__gt=0, name__icontains=keyword)
     cart = Cart.objects.filter(user=request.user).first()
     my_figures = cart.figures.filter(in_stock__gt=0)
-    return render(request, 'home/user-figures.html', {'figures': figures, 'my_figures': my_figures, 'cart': cart})
+    return render(request, 'home/user-figures.html', {'figures': figures, 'my_figures': my_figures, 'cart': cart, 'keyword': keyword})
 
 
 @login_required(login_url='/signin/')

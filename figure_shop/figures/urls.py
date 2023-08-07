@@ -5,7 +5,8 @@ from rest_framework.routers import DefaultRouter
 from .admin import admin_site
 from . import views
 from .views import index, figures_view, notifications_view, about_view, notification_detail, figure_detail, signin_view, \
-    orders_view, figure_search, purchase_view, create_order, order_detail, logout_view, signin, signup_view, signup
+    orders_view, figure_search, purchase_view, create_order, order_detail, logout_view, signin, signup_view, signup, \
+    statistics_view, modes_view
 
 router = DefaultRouter()
 router.register('cart', views.CartViewSet)
@@ -28,5 +29,7 @@ urlpatterns = [
     path('notifications/', notifications_view),
     re_path(r'^notifications/details/id=(?P<id>[0-9]|[1-9][0-9])/$', notification_detail),
     path('about/', about_view),
+    path('admin/statistics/', statistics_view),
+    path('admin/modes/', modes_view),
     path('admin/', admin_site.urls),
 ]

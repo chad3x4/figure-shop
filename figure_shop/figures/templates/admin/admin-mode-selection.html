@@ -1,0 +1,31 @@
+{% extends 'admin/base_site.html' %}
+{% load static %}
+{% block title %}Chọn chế độ quản lý{% endblock %}
+{% block branding %}<h1 id="site-name">Figure Shop</h1>{% endblock %}
+{% block content %}
+    <script src="https://kit.fontawesome.com/f119a3f6e2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/mode-style.css' %}"/>
+    <h1>Chọn chế độ quản lý</h1>
+    <div class="modes">
+        <div class="mode">
+            <a href="/admin/figures/user/">&lt;&lt; Người dùng &gt;&gt;</a><br/>
+            <i class="fa-solid fa-user" style="color: #79aec8;font-size:130px;margin-top:35px;"></i>
+        </div>
+        <div class="mode">
+            <a href="/admin/figures/figure/">&lt;&lt; Sản phẩm &gt;&gt;</a><br/>
+            <i class="fa-solid fa-robot" style="color: #79aec8;font-size:100px;margin-top:35px;"></i>
+        </div>
+        <div class="mode">
+            <a href="/admin/figures/order/">&lt;&lt; Đơn hàng &gt;&gt;</a><br/>
+            <i class="fa-solid fa-cart-shopping" style="color: #79aec8;font-size:120px;margin-top:45px;"></i>
+        </div>
+        <div class="mode">
+            <a href="/admin/figures/notification/">&lt;&lt; Thông báo &gt;&gt;</a><br/>
+            <i class="fa-solid fa-bell" style="color: #79aec8;font-size:120px;margin-top:35px;"></i>
+        </div>
+    </div>
+    <div class="actions">
+        <a class="action" href="/">&lt;&lt; Quay lại trang chủ</a>
+        <a class="action right" href="/admin/statistics/">Xem doanh thu &gt;&gt;</a>
+    </div>
+{% endblock %}

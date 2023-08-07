@@ -80,6 +80,7 @@ class Order(models.Model):
     class Meta:
         verbose_name = "Đơn hàng"
         verbose_name_plural = "Đơn hàng"
+        ordering = ['-created_date']
 
     receiver_name = models.CharField(max_length=50, null=False, default="Không xác định")
     to_address = models.TextField(max_length=255, null=False)

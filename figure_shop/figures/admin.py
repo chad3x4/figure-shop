@@ -77,7 +77,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 class FigureShopAdminSite(admin.AdminSite):
     site_title = "Administrator"
-    site_header = "NTCSHOP"
+    site_header = "Figure Shop"
     index_title = "Hệ thống quản lý cửa hàng"
 
     def get_urls(self):

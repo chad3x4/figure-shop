@@ -1,0 +1,25 @@
+{% extends 'admin/base_site.html' %}
+{% load static %}
+{% load custom_filter %}
+{% block title %}Thống kê doanh thu{% endblock %}
+{% block branding %}<h1 id="site-name">Figure Shop</h1>{% endblock %}
+
+{% load humanize %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/chart-style.css' %}"/>
+    <h1>Thống kê doanh thu theo tháng của năm 2023</h1>
+    <p>**Di chuột đến 1 tháng bất kì để xem cụ thể doanh thu</p>
+    <div class="chart-wrap vertical">
+        <div class="grid">
+            {% for month_key, month_value in months.items %}
+            {% with bar_value=month_value|divide:500000|floatformat:2 %}
+                <div class="bar" style="--bar-value:{{ bar_value }}%;" data-name="Tháng {{ month_key }}" title="{{ month_value|intcomma }} VND"></div>
+            {% endwith %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="actions">
+        <a class="action" href="/">&lt;&lt; Quay lại trang chủ</a>
+        <a class="action right" href="/admin/modes/">Đến trang quản lý &gt;&gt;</a>
+    </div>
+{% endblock %}

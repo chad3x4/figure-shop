@@ -25,7 +25,8 @@
             <i class="fa-solid fa-user dropdown-menu col10" style="color: #ffffff;font-size:25px;">
                 <div class="dropdown-pane">
                     {% if user.is_staff %}
-                    <div class="dropdown-item"><a class="options" href="/admin/figures/">Quản lý trang web</a></div>
+                    <div class="dropdown-item"><a class="options" href="/admin/modes/">Quản lý trang web</a></div>
+                    <div class="dropdown-item"><a class="options" href="/admin/statistics/">Xem doanh thu</a></div>
                     {% else %}
                     {% endif %}
                     <div class="dropdown-item"><a class="options" href="/logout/">Đăng xuất</a></div>

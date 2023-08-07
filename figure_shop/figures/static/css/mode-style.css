@@ -1,0 +1,38 @@
+h1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.modes {
+    display: flex;
+}
+
+.mode {
+    margin: 20px;
+    padding: 15px;
+    width: 25%;
+    text-align: center;
+    border: 2px solid #666;
+    border-radius: 8px;
+
+}
+
+.mode a {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+}
+
+.action {
+    width: 50%;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.right {
+    text-align: right;
+}
