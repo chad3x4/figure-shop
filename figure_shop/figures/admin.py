@@ -29,10 +29,10 @@ class FigureAdmin(admin.ModelAdmin):
             return mark_safe("<img src='/static/{url}' alt='{alt}' width='120' />"
                              .format(url=figure.cover.name, alt=figure.name))
 
-    # class Media:
-    #     css = {
-    #         'all': ('/static/css/style.css', )
-    #     }
+    class Media:
+        css = {
+            'all': ('/static/css/admin-style.css', )
+        }
     #     js = ('/static/js/script.js', )
 
 
@@ -45,6 +45,14 @@ class UserAdmin(admin.ModelAdmin):
     form = UserForm
     actions_on_top = False
     list_display = ['username', 'first_name', 'last_name', ]
+
+    def has_add_permission(self, request):
+        return False
+
+    class Media:
+        css = {
+            'all': ('/static/css/admin-style.css', )
+        }
 
 
 class NotificationForm(forms.ModelForm):
@@ -61,6 +69,11 @@ class NotificationAdmin(admin.ModelAdmin):
     save_and_add_another = False
     save_and_continue_editing = False
 
+    class Media:
+        css = {
+            'all': ('/static/css/admin-style.css', )
+        }
+
 
 class OrderForm(forms.ModelForm):
     class Meta:
@@ -73,6 +86,14 @@ class OrderAdmin(admin.ModelAdmin):
     save_and_add_another = False
     save_and_continue_editing = False
     show_full_result_count = False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    class Media:
+        css = {
+            'all': ('/static/css/admin-style.css', )
+        }
 
 
 class FigureShopAdminSite(admin.AdminSite):
